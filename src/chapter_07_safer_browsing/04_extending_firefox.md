@@ -81,6 +81,17 @@ You can add your own rules to the HTTPS Everywhere add-on for your favorite Web 
 
 If you are managing a Web site and have made an HTTPS version of the site available, a good practice would be to submit your Web site to the official HTTPS Everywhere release.
 
+Enforcing secure HTTPS server connections
+-----------------------------------------
+
+Even if you instruct your browser to use the HTTPS protocol when communicating with a web server, it is still possible that the server (due to unsecure configuration on its own side) enforces a unsecure SSL cipher protocol for the connection. The only way to prevent this is by telling the browser to not accept such unsecure SSL protocols (like those based on RC4 encryption).
+
+To disable RC4 encryption for HTTPS connections you have to switch those off in Firefox. In an empty address bar type "about:config", press return and close the warning dialog displayed next (you can disable this dialog if you want for the next time you configure Firefox). In the search field enter "rc4" and look at the list displayed as a search result:
+
+![Disable RC4](disable_rc4.png)
+
+Any entry with a "true" in the last column ("Value" field) is activated and should be de-activated. Simply right-click on the entry and "Toggle" the value field to false. Proceed for all entries until all of them have a value of "false".
+
 Adblock Plus
 ------------
 
@@ -138,3 +149,7 @@ Below is a short list of extensions that are not covered in this book but are he
  * **BetterPrivacy** - manages "cookies" used to track you while visiting websites. Cookies are small bits of information stored in your browser. Some of them are used to track the sites you are visiting by advertisers. [https://addons.mozilla.org/en-US/firefox/addon/betterprivacy/](https://addons.mozilla.org/en-US/firefox/addon/betterprivacy/)
 
  * **GoogleSharing** - If you are worried that google knows your search history, this extension will help prevent that. [https://addons.mozilla.org/en-us/firefox/addon/googlesharing/](https://addons.mozilla.org/en-us/firefox/addon/googlesharing/)
+
+ * **NoScript** - Although not friendly for beginners, this addon will block scripts and third party plugin content (eg, Adobe Flash) unless specifically allowed by the user, it also provides general protection against simple cross site scripting vectors. [http://noscript.net/](http://noscript.net/)
+
+ * **User Agent Switcher** - Your browser supplies large amounts of identifying information to any remote server through the 'User-Agent' header, including Operating System and specific version information. This addon allows you to supply either a fake or generic User-Agent to the server. [http://chrispederick.com/work/user-agent-switcher/](http://chrispederick.com/work/user-agent-switcher/)

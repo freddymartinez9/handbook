@@ -1,7 +1,11 @@
-#!/bin/python
+#!/usr/bin/python
 
-from BeautifulSoup import BeautifulSoup
 import sys, os
+
+try:
+	from bs4 import BeautifulSoup
+except ImportError:
+	from BeautifulSoup import BeautifulSoup
 
 if len(sys.argv) < 2:
     sys.exit('no parameter given')
@@ -14,4 +18,4 @@ h = open(sys.argv[1], 'r').read()
 soup = BeautifulSoup(h)
 for div in soup.html.body.findAll('div'):
     if (div.has_attr('id')) and (div['id'] == 'TOC'):
-        print div
+        print(div)
